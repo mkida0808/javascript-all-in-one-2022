@@ -33,4 +33,21 @@
 
   const test10 = null ?? 'user'; // nullはnull合体演算子の評価基準員合うので、'use'がtest10に代入される。
   console.log(test10);  // ''
+
+  // for-of文で配列の要素ごとにループをする
+  const fruits = ['apple', 'banana', 'grape', 'orange', 'mango'];
+  for (const fruit of fruits) {
+    console.log(fruit);
+  }
+
+  // for-in文でオブジェクトのプロパティごとにループする
+  const coffee = {
+    name: 'Caffe Latte',
+    size: 30,
+    isHot: true,
+  }
+  for (const key in coffee) {
+    console.log(key);
+    console.log(coffee[key]);
+  }
 }
