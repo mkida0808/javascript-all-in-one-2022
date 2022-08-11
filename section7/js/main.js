@@ -10,7 +10,7 @@
       incrementAge: () => {
         age++;
         // return age;
-      }
+      },
     };
   };
   const makoto = generatePerson('makoto');
@@ -29,4 +29,15 @@
   tom.incrementAge();
   console.log(tom.getAge());
   console.log(tom.getName());
+
+  // ブウランザー上でのクロージャーの挙動確認
+  let createCounter = () => {
+    let count = 0;
+    return () => {
+      count++;
+      return count;
+    };
+  };
+  const counter = createCounter();
+  counter();
 }
