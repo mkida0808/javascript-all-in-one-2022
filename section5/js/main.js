@@ -40,4 +40,15 @@
   // デフォルトパラメータ
   sayHi = (name = 'User') => `Hi, ${name}!`;
   console.log(sayHi());
+
+  // レストパラメーター（レスト構文）
+  let sum = (...nums) => {
+    console.log(nums);
+    let total = 0;
+    for (let num of nums) {
+      total += num;
+    }
+    return total;
+  }
+  console.log(sum(1, 2, 3, 4)); // sum: 10
 }
