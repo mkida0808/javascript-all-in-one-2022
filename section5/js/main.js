@@ -51,4 +51,14 @@
     return total;
   }
   console.log(sum(1, 2, 3, 4)); // sum: 10
+
+  // コールバック関数
+  let subtract = (a, b, callback) => {
+    let result = a - b;
+    // callback('hello again');
+    callback(result);
+  };
+  subtract(10, 7, (result) => {
+    console.log(result);
+  });
 }
