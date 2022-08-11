@@ -19,8 +19,8 @@
 
   // 無名関数
   sayHi = function () {
-    return 'Hi（無名関数）'
-  }
+    return 'Hi（無名関数）';
+  };
   console.log(sayHi());
 
   // オブジェクトのキーの中に関数（メソッド）を書く
@@ -28,7 +28,16 @@
     name: 'makoto',
     sayHi: function () {
       return 'Hello（メソッド）';
-    }
+    },
   };
   console.log(person.sayHi());
+
+  // アロー関数（無名関数を書き換え）
+  sayHi = () => 'Hi（無名関数からアロー関数に置き換え）';
+
+  console.log(sayHi());
+
+  // デフォルトパラメータ
+  sayHi = (name = 'User') => `Hi, ${name}!`;
+  console.log(sayHi());
 }
