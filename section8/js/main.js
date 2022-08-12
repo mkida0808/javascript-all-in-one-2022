@@ -58,4 +58,13 @@
   // オブジェクトのプロパティを削除
   delete person.name;
   console.log(person);
+
+  // オブジェクトプロパティの省略記法
+  const name = 'エスプレッソ';
+  const size = 'large';
+  const coffee = {
+    name, // name: name,
+    size, // size: size,
+  };
+  console.log(coffee);
 }
