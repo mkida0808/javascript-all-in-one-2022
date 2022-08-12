@@ -54,4 +54,8 @@
 
   // オブジェクトのキーと値を合わせて配列で取得する
   console.log(Object.entries(person));
+
+  // オブジェクトのプロパティを削除
+  delete person.name;
+  console.log(person);
 }
