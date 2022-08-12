@@ -67,4 +67,10 @@
     size, // size: size,
   };
   console.log(coffee);
+
+  // スプレッド構文（）
+  const coffee2 = { ...coffee }; // 新たにオブジェクト作成してスプレッド構文でオブジェクトプロパティをまるごとコピーする
+  console.log(coffee2 === coffee); // ↑上記の通りでメモリアドレスが異なるので、falseが返ってくる // false
+  const coffee3 = coffee; // オブジェクトが格納されているメモリアドレスを代入している
+  console.log(coffee3 === coffee); // オブジェクトのメモリアドレスが同じなので、結果trueが返ってくる // true
 }
