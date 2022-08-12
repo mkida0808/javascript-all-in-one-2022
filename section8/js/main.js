@@ -73,4 +73,11 @@
   console.log(coffee2 === coffee); // ↑上記の通りでメモリアドレスが異なるので、falseが返ってくる // false
   const coffee3 = coffee; // オブジェクトが格納されているメモリアドレスを代入している
   console.log(coffee3 === coffee); // オブジェクトのメモリアドレスが同じなので、結果trueが返ってくる // true
+
+  // 既存オブジェクトを拡張する(Object.assign)
+  const o1 = { a: 1, };
+  const o2 = { a: 2, b: 2, };
+  const o3 = { a: 3, b: 3, c: 3, };
+  const newObj = Object.assign(o1, o2, o3); // o1アプジェクトにo2, o3のオブジェクトを結合する。返り値はo1のメモリアドレス
+  console.log(o1 === newObj); // newObjはo1オブジェクトと同じメモリアドレスなので、trueが返ってくる // true
 }
