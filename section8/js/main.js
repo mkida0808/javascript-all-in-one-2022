@@ -118,4 +118,12 @@
 
   // オブジェクトプロパティの有無を調べる（in演算子）
   console.log('title' in book); // titleがundefinedの場合はundefinedとして表示される
+
+  console.log('----------');
+
+  // オプショナルチェーニングについて（読み込みまたは削除のみに有効）
+  let user1 = undefined;
+  let user2 = null;
+  user1?.address; // userがundefinedかnullであれば、それ以下のプロパティやメソッドは評価しない
+  user2?.address; // userがundefinedかnullであれば、それ以下のプロパティやメソッドは評価しない
 }
