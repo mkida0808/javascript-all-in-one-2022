@@ -116,4 +116,6 @@
   }
   sayBook(book);
 
+  // オブジェクトプロパティの有無を調べる（in演算子）
+  console.log('title' in book); // titleがundefinedの場合はundefinedとして表示される
 }
