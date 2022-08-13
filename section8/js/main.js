@@ -32,7 +32,6 @@
   console.log(person[interests]);
   console.log(person['greeting']());
 
-
   // オブジェクトのキー（文字列）を取得する（その1）
   for (let key in person) {
     console.log(key);
@@ -75,9 +74,46 @@
   console.log(coffee3 === coffee); // オブジェクトのメモリアドレスが同じなので、結果trueが返ってくる // true
 
   // 既存オブジェクトを拡張する(Object.assign)
-  const o1 = { a: 1, };
-  const o2 = { a: 2, b: 2, };
-  const o3 = { a: 3, b: 3, c: 3, };
+  const o1 = { a: 1 };
+  const o2 = { a: 2, b: 2 };
+  const o3 = { a: 3, b: 3, c: 3 };
   const newObj = Object.assign(o1, o2, o3); // o1アプジェクトにo2, o3のオブジェクトを結合する。返り値はo1のメモリアドレス
   console.log(o1 === newObj); // newObjはo1オブジェクトと同じメモリアドレスなので、trueが返ってくる // true
+
+  console.log('----------');
+
+  // 分割代入
+  const book = {
+    title: 'JavaScript course',
+    price: 9.99,
+    author: {
+      firstName: 'mmmname',
+      lastName: 'kkkname',
+    },
+    isbn: 1234567890,
+    description: 'This book is about JavaScript',
+  };
+  // const title = book.title;
+  // console.log(title);
+  const {
+    title: bookTitle,
+    price,
+    author: { firstName },
+    publisher:pub = 'makoto inc',
+    ...etc // スプレッド演算子と類似、残りのプロパティをオブジェクトとして入る
+  } = book; // 分割代入をしている
+
+  const sayBook = ({
+    title: bookTitle,
+    price,
+    author: { firstName },
+    publisher:pub = 'makoto inc',
+    ...etc
+  }) => {
+    // console.log(bookTitle, price, author);
+    // console.log(bookTitle, price, firstName, publisher);
+    console.log(bookTitle, price, firstName, pub, etc);
+  }
+  sayBook(book);
+
 }
