@@ -126,4 +126,20 @@
   let user2 = null;
   user1?.address; // userがundefinedかnullであれば、それ以下のプロパティやメソッドは評価しない
   user2?.address; // userがundefinedかnullであれば、それ以下のプロパティやメソッドは評価しない
+
+  console.log('----------');
+
+  // thisとグローバルオブジェクト
+  // le
+  // - global object
+  // - this: global object
+
+  // le
+  // outerEnv: global
+  // this: strict ? undefined : global object
+  console.log(this);
+  let sayThis = function () {
+    console.log(this); // use strictのときはundefinedが返ってくる。use strictがない場合はグローバルオブジェクトが返ってくる
+  }
+  sayThis();
 }
