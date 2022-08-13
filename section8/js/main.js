@@ -130,16 +130,33 @@
   console.log('----------');
 
   // thisとグローバルオブジェクト
-  // le
+  // le - (global)
   // - global object
   // - this: global object
 
-  // le
+  // le - (sayThis())
   // outerEnv: global
   // this: strict ? undefined : global object
+
+  // le
+  // outerEnv: global
+  // - this: car
   console.log(this);
   let sayThis = function () {
     console.log(this); // use strictのときはundefinedが返ってくる。use strictがない場合はグローバルオブジェクトが返ってくる
   }
-  sayThis();
+
+  const car = {
+    color: 'red',
+    sayThis, // sayThis: sayThis
+    changeColor: function (color) {
+      // car.color = color; // これだとcarのcolorが変わる
+      this.color = color; // これだとcar2のcolorが変わる
+    }
+  }
+  const car2 = { ...car };
+  car2.changeColor('white');
+  // car.sayThis();
+  console.log(car);
+  console.log(car2);
 }
