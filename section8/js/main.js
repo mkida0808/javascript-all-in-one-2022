@@ -99,7 +99,7 @@
     title: bookTitle,
     price,
     author: { firstName },
-    publisher:pub = 'makoto inc',
+    publisher: pub = 'makoto inc',
     ...etc // スプレッド演算子と類似、残りのプロパティをオブジェクトとして入る
   } = book; // 分割代入をしている
 
@@ -107,13 +107,13 @@
     title: bookTitle,
     price,
     author: { firstName },
-    publisher:pub = 'makoto inc',
+    publisher: pub = 'makoto inc',
     ...etc
   }) => {
     // console.log(bookTitle, price, author);
     // console.log(bookTitle, price, firstName, publisher);
     console.log(bookTitle, price, firstName, pub, etc);
-  }
+  };
   sayBook(book);
 
   // オブジェクトプロパティの有無を調べる（in演算子）
@@ -144,7 +144,7 @@
   console.log(this);
   let sayThis = function () {
     console.log(this); // use strictのときはundefinedが返ってくる。use strictがない場合はグローバルオブジェクトが返ってくる
-  }
+  };
 
   const car = {
     color: 'red',
@@ -152,11 +152,60 @@
     changeColor: function (color) {
       // car.color = color; // これだとcarのcolorが変わる
       this.color = color; // これだとcar2のcolorが変わる
-    }
-  }
+    },
+  };
   const car2 = { ...car };
   car2.changeColor('white');
   // car.sayThis();
   console.log(car);
   console.log(car2);
+
+  console.log('----------');
+
+  {
+    ('use strict');
+
+    // thisとグローバルオブジェクト（アロー関数上では）
+    // le - (global)
+    // - global object
+    // - this: global object
+
+    // le - (sayThis())
+    // outerEnv: global
+    // (thisがなくなる)
+
+    // le - (car.changeColor())
+    // outerEnv: global
+    // (thisはなくなる)
+
+    // le - (logging())
+    // outerEnv: global
+    // (thisはなくなる)
+
+    // le - (cb())
+    // outerEnv: car.changeColor()
+    // this: strict ? undefined : global object
+
+    // 上記のthisとグローバルあオブジェクトをアロー関数上で実装する場合について
+    let sayThis = () => {
+      console.log(this); // アロー関数上ではthisが考慮されず（ここではcar）グローバルオブジェクトが返ってくる
+    };
+
+    let logging = (callback) => {
+      console.log(callback());
+    };
+
+    const car = {
+      color: 'red',
+      sayThis,
+      changeColor: function (color) {
+        // logging(function () {
+        logging(() => {
+          return this.color;
+        });
+        this.color = color;
+      },
+    };
+    car.changeColor('yellow');
+  }
 }
