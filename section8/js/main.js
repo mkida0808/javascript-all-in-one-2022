@@ -198,7 +198,15 @@
     const car = {
       color: 'red',
       sayThis,
-      changeColor: function (color) {
+      // changeColor: function (color) {
+      //   // logging(function () {
+      //   logging(() => {
+      //     return this.color;
+      //   });
+      //   this.color = color;
+      // },
+      // ↑メソッドの省略気泡
+      changeColor(color) {
         // logging(function () {
         logging(() => {
           return this.color;
