@@ -230,7 +230,7 @@
     // sayThis(2); // {hello: 'hello'} 1 2
 
     // getterとsetter
-    const pastaCalculator = {
+    let pastaCalculator = {
       servingSize: 60,
       member: 4,
       // getter
@@ -245,4 +245,24 @@
     pastaCalculator.total = 600;
     console.log(pastaCalculator.total); // getterでメソッドをプロパティのように扱える
   }
+
+  console.log('----------');
+
+  // PropertyDescriptor
+  const pastaCalculator2 = {
+    servingSize: 120,
+    member: 8,
+  }
+  Object.defineProperty(pastaCalculator2, 'total', {
+    configurable: true,
+    enumerable: true,
+    get() {
+      return this.servingSize * this.member;
+    },
+    set(newValue) {
+      this.member = newValue / this.servingSize;
+    }
+  });
+  console.log(Object.getOwnPropertyDescriptor(pastaCalculator2, 'servingSize'));
+  console.log(pastaCalculator2);
 }
