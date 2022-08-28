@@ -207,5 +207,13 @@
       },
     };
     car.changeColor('yellow');
+
+    console.log('----------');
+
+    sayThis = function (a, b) {
+      console.log(this, a, b);
+    };
+    sayThis.call({ hello: 'hello'}, 1, 2);
+    sayThis.apply({ hello: 'hello'}, [3, 4]);
   }
 }
