@@ -265,4 +265,17 @@
   });
   console.log(Object.getOwnPropertyDescriptor(pastaCalculator2, 'servingSize'));
   console.log(pastaCalculator2);
+
+  console.log('----------');
+
+  // Object.preventExtensions()とObject.seal()とObject.freeze()
+  const blog = {
+    title: 'How to make a cake.',
+    author: 'makoto',
+  };
+  // Object.preventExtensions(blog); // blogオブジェクトにこれ以上プロパティうを作成することが出来ない
+  // Object.seal(blog); // blogオブジェクトにこれ以上プロパティうを作成することが出来ない＋configurableがfalseになる
+  Object.freeze(blog); // blogオブジェクトにこれ以上プロパティうを作成することが出来ない＋configurableがfalseになる＋writableがfalseになる
+  blog.hello = 'hello';
+
 }
