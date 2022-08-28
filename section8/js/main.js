@@ -210,10 +210,15 @@
 
     console.log('----------');
 
+    // apply, callを使ってthisを指定して関数を呼び出す
     sayThis = function (a, b) {
       console.log(this, a, b);
     };
-    sayThis.call({ hello: 'hello'}, 1, 2);
-    sayThis.apply({ hello: 'hello'}, [3, 4]);
+    // sayThis.call({ hello: 'hello'}, 1, 2);
+    // sayThis.apply({ hello: 'hello'}, [3, 4]);
+
+    // bindを使ってthisや引数を固定した関数を作る方法
+    sayThis = sayThis.bind({hello: 'hello'}, 1); // {hello: 'hello'} 1 undefined
+    sayThis(2); // {hello: 'hello'} 1 2
   }
 }
