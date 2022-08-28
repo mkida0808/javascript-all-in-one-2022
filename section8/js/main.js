@@ -227,6 +227,22 @@
 
     // bindを使ってthisや引数を固定した関数を作る方法
     sayThis = sayThis.bind({hello: 'hello'}, 1); // {hello: 'hello'} 1 undefined
-    sayThis(2); // {hello: 'hello'} 1 2
+    // sayThis(2); // {hello: 'hello'} 1 2
+
+    // getterとsetter
+    const pastaCalculator = {
+      servingSize: 60,
+      member: 4,
+      // getter
+      get total() { // getterにメソッド省略記法を書く
+        return this.servingSize * this.member;
+      },
+      // setter
+      set total(newValue) {
+        this.member = newValue / this.servingSize;
+      },
+    }
+    pastaCalculator.total = 600;
+    console.log(pastaCalculator.total); // getterでメソッドをプロパティのように扱える
   }
 }
