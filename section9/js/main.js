@@ -41,13 +41,17 @@
 
   console.log('----------');
 
+  const userPrototype = {
+    greeting() {
+      return `Hi! This is ${this.name}. I am ${this.age} years old.`;
+    }
+  }
   // ファクトリ関数について（クラスと比較）
   const UserFactory = (name, age) => {
-    return {
-        name,
-        age,
-        greeting() {},
-    };
+    const user = Object.create(userPrototype);
+    user.name = name;
+    user.age = age;
+    return user;
   }
   const userf1 = UserFactory('makoto', 21);
   const userf2 = UserFactory('kk', 32);
@@ -58,11 +62,13 @@
 
   // クラスについて（ファクトリと比較）
   const UserConstructor = function (name, age) { // コンストラクタ関数
-    // this = {}
+    // this = Object.create(UserConstructor.prototype)
     this.name = name;
     this.age = age;
-    this.greeting = function () {};
     // return this
+  }
+  UserConstructor.prototype.greeting = function () {
+    return `Hi! This is ${this.name}. I am ${this.age} years old.`;
   }
   const userc1 = new UserConstructor('makoto', 30); // インスタンス
   const userc2 = new UserConstructor('kkkk', 34); // インスタンス
@@ -70,4 +76,5 @@
   console.log(userc1);
   console.log(userc2);
   console.log(userc3);
+  // console.dir(UserConstructor);
 }
