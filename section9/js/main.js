@@ -38,4 +38,36 @@
   for (const key of Object.keys(obj2)) { // keyはプロトタイプのプロパティkeyまではループ検索しない
     console.log(key);
   }
+
+  console.log('----------');
+
+  // ファクトリ関数について（クラスと比較）
+  const UserFactory = (name, age) => {
+    return {
+        name,
+        age,
+        greeting() {},
+    };
+  }
+  const userf1 = UserFactory('makoto', 21);
+  const userf2 = UserFactory('kk', 32);
+  const userf3 = UserFactory('mm', 53);
+  console.log(userf1);
+  console.log(userf2);
+  console.log(userf3);
+
+  // クラスについて（ファクトリと比較）
+  const UserConstructor = function (name, age) { // コンストラクタ関数
+    // this = {}
+    this.name = name;
+    this.age = age;
+    this.greeting = function () {};
+    // return this
+  }
+  const userc1 = new UserConstructor('makoto', 30); // インスタンス
+  const userc2 = new UserConstructor('kkkk', 34); // インスタンス
+  const userc3 = new UserConstructor('mmmm', 23); // インスタンス
+  console.log(userc1);
+  console.log(userc2);
+  console.log(userc3);
 }
