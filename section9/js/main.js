@@ -77,4 +77,15 @@
   console.log(userc2);
   console.log(userc3);
   // console.dir(UserConstructor);
+
+  console.log('----------');
+
+  // 内蔵されているコンストラクタ関数について
+  const o = new Object({hi: 'hi'});
+  Object.prototype.hello = 'hello';
+  const a = new Array('Apple', 'Banana');
+  const f = new Function('a', 'b', 'return a + b');
+  console.log(o);
+  console.log(a);
+  console.log(f);
 }
