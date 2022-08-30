@@ -88,4 +88,14 @@
   console.log(o);
   console.log(a);
   console.log(f);
+
+  console.log('----------');
+
+  // hasOwnPropertyメソッド
+  const o2 = { a: 1,};
+  console.log(o2);
+  console.log(o2.hasOwnProperty('a')); // プロトタイプチェーンまでは見ない
+  console.log('a' in o); // プロトタイプチェーンまで見る
+  console.log(Object.prototype.hasOwnProperty.call(o, 'a'));
+
 }
