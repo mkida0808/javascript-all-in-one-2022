@@ -63,6 +63,12 @@
   // クラスについて（ファクトリと比較）
   const UserConstructor = function (name, age) { // コンストラクタ関数
     // this = Object.create(UserConstructor.prototype)
+    console.log('*************************');
+    console.log(new.target);
+    console.log('*************************');
+    if (new.target === undefined) {
+      return new UserConstructor(name, age);
+    }
     this.name = name;
     this.age = age;
     // return this
@@ -70,7 +76,7 @@
   UserConstructor.prototype.greeting = function () {
     return `Hi! This is ${this.name}. I am ${this.age} years old.`;
   }
-  const userc1 = new UserConstructor('makoto', 30); // インスタンス
+  const userc1 = UserConstructor('makoto', 30); // インスタンス
   const userc2 = new UserConstructor('kkkk', 34); // インスタンス
   const userc3 = new UserConstructor('mmmm', 23); // インスタンス
   console.log(userc1);
