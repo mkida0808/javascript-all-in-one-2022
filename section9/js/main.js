@@ -108,10 +108,12 @@
 
   // クラス構文
   class User {
+    id = 120; // フィールド宣言構文 this.id = 120に近い
     constructor(name, age) {
       this.name = name;
       this.age = age;
     }
+    birthday = '1990/1/1'; // フィールド宣言構文 this.birthday = '1990/1/1'に近い
     greeting() {} // getterやsetterを用いるときはメソッドの頭にgetterかsetterを付ける
     post() {} // getterやsetterを用いるときはメソッドの頭にgetterかsetterを付ける
   }
