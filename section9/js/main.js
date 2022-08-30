@@ -112,8 +112,8 @@
       this.name = name;
       this.age = age;
     }
-    greeting() {}
-    post() {}
+    greeting() {} // getterやsetterを用いるときはメソッドの頭にgetterかsetterを付ける
+    post() {} // getterやsetterを用いるときはメソッドの頭にgetterかsetterを付ける
   }
   const user4 = new User('makoto22', 66);
   console.dir(User);
