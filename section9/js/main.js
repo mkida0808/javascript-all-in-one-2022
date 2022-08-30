@@ -104,4 +104,18 @@
   console.log('a' in o); // プロトタイプチェーンまで見る
   console.log(Object.prototype.hasOwnProperty.call(o, 'a'));
 
+  console.log('----------');
+
+  // クラス構文
+  class User {
+    constructor(name, age) {
+      this.name = name;
+      this.age = age;
+    }
+    greeting() {}
+    post() {}
+  }
+  const user4 = new User('makoto22', 66);
+  console.dir(User);
+  console.dir(user4);
 }
