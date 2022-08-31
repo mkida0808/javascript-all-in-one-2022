@@ -121,4 +121,25 @@
   const user4 = new User('makoto22', 66);
   console.dir(User);
   console.dir(user4);
+
+  console.log('----------');
+
+  // クラスの継承
+  class Animal {
+    age = 0;
+    constructor(age) {
+      this.age = age;
+    }
+    eat() {}
+  }
+  class Bird extends Animal {
+    name = 'pi';
+    constructor(age, name) {
+      super(age);
+      this.name = name;
+    }
+    fly() {}
+  }
+  const bird = new Bird(3, 'pi2');
+  console.log(bird);
 }
