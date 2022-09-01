@@ -42,7 +42,9 @@
   fruits = new Array('hello');
   console.log(fruits);
 
+
   console.log('-----');
+
 
   // スプレッド構文で配列を展開する
   fruits = ['apple', 'banana', 'grape'];
@@ -56,4 +58,24 @@
   };
   let nums = [1, 2, 3, 4];
   sum(...nums, 5, 6, ...[7, 8], 9); // 配列の要素をスプレッド構文で関数オブジェクトに展開する
+
+
+  console.log('-----');
+
+
+  // 配列の分割代入
+  const makoto = ['makoto', 123];
+  let [name, age] = makoto; //  分割代入
+  console.log(name, age);
+
+  const makoto2 = ['mmmkkk', 234, 'man', ['music', 'travel'], {first: 'mmm', last: 'kkk'}];
+  let [, , gender, [music, travel], {first}] = makoto2;
+
+  console.log(gender, music, travel, first);
+
+  let userObject = { hobbies: ['music', 'travel']};
+  let {
+    hobbies: [, travelObject],
+  } = userObject;
+  console.log(travelObject);
 }
