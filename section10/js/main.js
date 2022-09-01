@@ -90,4 +90,21 @@
   items.unshift(-2, -1); // 配列最初の要素を追加
   items.shift(); // 配列最初の要素を削除
   console.log(items);
+
+
+  console.log('----------');
+
+
+  // オブジェクトのpush, pop, unshift, shift
+  arrayLikeObject = {
+    0: 0,
+    1: 1,
+    2: 2,
+    length: 3
+  }
+  Array.prototype.push.call(arrayLikeObject, 3); // push, popは(length-1)の要素を基準に処理を行う
+  Array.prototype.pop.call(arrayLikeObject); // push, popは(length-1)の要素を基準に処理を行う
+  Array.prototype.unshift.call(arrayLikeObject, -1); // オブジェクトのunshift, shiftは内部で場合分けして要素が移動する
+  Array.prototype.shift.call(arrayLikeObject);
+  console.log(arrayLikeObject);
 }
