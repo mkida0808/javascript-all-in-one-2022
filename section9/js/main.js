@@ -220,4 +220,22 @@
   console.log(bird2.animal2.age);
   bird2.animal2.eat();
   Bird2.fly();
+
+  console.log('----------');
+
+  // instanceof演算子とisPrototypeOf()
+  class Car {}
+  const car = new Car();
+  console.log(car instanceof Car);
+
+  class Taxi extends Car {}
+  const taxi = new Taxi();
+  const prius = Object.create(Car.prototype);
+  // Car.prototype === taxi.__proto__を見る
+  // 無かったらCar.prototype === taxi.__proto__.__proto__を見る
+  // 無かったらCar.prototype === taxi.__proto__.__proto__.__proto__を見る
+  console.log(taxi instanceof Car);
+  console.log(prius instanceof Car); // ※1
+  console.log(Car.prototype.isPrototypeOf(prius)); // ※2 → ※1と※2と※3は同じ意味になる
+  console.log(Object.prototype.isPrototypeOf(Car.prototype, prius)); // ※3 → ※1と※2と※3は同じ意味になる
 }
