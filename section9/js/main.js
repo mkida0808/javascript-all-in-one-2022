@@ -185,4 +185,39 @@
   // birdObj.eat();
   swallowObj.eat();
   console.log(birdObj);
+
+  console.log('----------');
+
+  // コンポジションとクラス継承の対比
+  class Animal2 {
+    age = 0;
+    constructor(age) {
+      this.age = age;
+    }
+    eat() {
+      console.log('eat from Animal2');
+    }
+    static foo() {
+      console.log('foo');
+    }
+  }
+  class Bird2 {
+    name = 'bird';
+    constructor(age, name) {
+      this.animal2 = new Animal2(age); // コンポジション
+      this.name = name;
+    }
+    eat() {
+      this.animal2.eat();
+      console.log('eat from Bird2');
+    }
+    static fly() {
+      Animal2.foo();
+      console.log('fly');
+    }
+  }
+  const bird2 = new Bird2(3, 'pi');
+  console.log(bird2.animal2.age);
+  bird2.animal2.eat();
+  Bird2.fly();
 }
