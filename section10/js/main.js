@@ -107,4 +107,12 @@
   Array.prototype.unshift.call(arrayLikeObject, -1); // オブジェクトのunshift, shiftは内部で場合分けして要素が移動する
   Array.prototype.shift.call(arrayLikeObject);
   console.log(arrayLikeObject);
+
+
+  console.log('----------');
+
+
+  // Array.from
+  const realArray = Array.from(arrayLikeObject);
+  console.log(realArray, arrayLikeObject);
 }
