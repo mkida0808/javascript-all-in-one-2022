@@ -119,7 +119,7 @@
 
   console.log('----------');
 
-
+  /* items配列を直接編集するメソッド（開始） */
   // spliceメソッド
   items = [0, 1, 2];
   items.splice(1, 1, 9, 8, 7);  // spliceメソッドで配列の要素を自由に追加削除など可能
@@ -148,4 +148,14 @@
     return a - b;
   });
   console.log(items);
+  /* items配列を直接編集するメソッド（終了） */
+
+  /* items配列を直接編集せずに新しく配列を作る（返す）メソッド（開始） */
+  // sliceメソッド
+  items = [0, 1, 2, 3, 4, 5];
+  let result = items.slice(2, 4);
+  console.log(result);
+
+
+  /* items配列を直接編集せずに新しく配列を作る（返す）メソッド（終了） */
 }
