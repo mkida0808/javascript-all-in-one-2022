@@ -130,4 +130,9 @@
   items.fill(0, 3, 5); // 既存の配列の要素が全て0に置き換わる
   console.log(items);
 
+  // copyWithinメソッド
+  items = [0, 1, 2, 3, 4, 5];
+  items.copyWithin(0, 2, 4); // 既存配列の要素数の範囲で要素のコピー＆貼り付けを行う（要素数がはみ出た場合はその分は追加されない）
+  console.log(items);
+
 }
