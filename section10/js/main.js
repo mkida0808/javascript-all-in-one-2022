@@ -78,4 +78,16 @@
     hobbies: [, travelObject],
   } = userObject;
   console.log(travelObject);
+
+
+  console.log('-----');
+
+
+  // 配列を変更する4つのメソッド
+  let items = [0, 1, 2];
+  items.push(3, 4); // 配列要素の末尾に追加
+  items.pop(); // 配列末尾の要素1つを削除
+  items.unshift(-2, -1); // 配列最初の要素を追加
+  items.shift(); // 配列最初の要素を削除
+  console.log(items);
 }
