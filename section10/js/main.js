@@ -135,4 +135,17 @@
   items.copyWithin(0, 2, 4); // 既存配列の要素数の範囲で要素のコピー＆貼り付けを行う（要素数がはみ出た場合はその分は追加されない）
   console.log(items);
 
+  // reverseメソッド
+  items = [0, 1, 2, 3, 4, 5];
+  items.reverse();
+  console.log(items);
+
+  // sortメソッド
+  items = [0, 10, undefined,  1, , , , 2, undefined, 4];
+  items.sort(); // 配列の要素を文字列を解釈して文字列順に並び替える
+  items.sort((a, b) => { // 明示的に配列要素の並び順を決める場合関数オブジェクトを指定する
+    console.log(a, b);
+    return a - b;
+  });
+  console.log(items);
 }
