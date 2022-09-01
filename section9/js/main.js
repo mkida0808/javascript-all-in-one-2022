@@ -130,16 +130,59 @@
     constructor(age) {
       this.age = age;
     }
-    eat() {}
+    eat() {
+      console.log('eat from Animal.');
+    }
   }
   class Bird extends Animal {
     name = 'pi';
     constructor(age, name) {
       super(age);
-      this.name = name;
+      this.name = name; // setterとしてsuper.nameとも記載できる
+      // super.name = name;
+    }
+    eat() {
+      super.eat(); // super.は
+      console.log('eat from Bird.');
     }
     fly() {}
   }
   const bird = new Bird(3, 'pi2');
+  bird.eat();
   console.log(bird);
+
+  console.log('----------');
+  const animalObj = {
+    age: 0,
+    eat() {
+      console.log('eat from animal obj');
+      console.log(this.age);
+    },
+    name: 'name',
+  }
+  const birdObj = {
+    age: 1,
+    eat() {
+      console.log('eat from bird obj');
+      console.log(this.age);
+      super.eat();
+      super.name = 'pi'; // this.nameと同じ意味になる（setterとしての動きに似ている）
+      console.log(super.name);
+      // console.log(super.name); // birdObj.__proto__.name === super.name
+    },
+  }
+  const swallowObj = {
+    age: 2,
+    eat() {
+      console.log('eat from swallow obj');
+      console.log(this.age);
+      super.eat();
+      // console.log(super.name); // swallowObj.__proto__.eat.call(this) === super.eat()
+    },
+  }
+  birdObj.__proto__ = animalObj;
+  swallowObj.__proto__ = birdObj;
+  // birdObj.eat();
+  swallowObj.eat();
+  console.log(birdObj);
 }
