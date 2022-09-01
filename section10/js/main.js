@@ -115,4 +115,19 @@
   // Array.from
   const realArray = Array.from(arrayLikeObject);
   console.log(realArray, arrayLikeObject);
+
+
+  console.log('----------');
+
+
+  // spliceメソッド
+  items = [0, 1, 2];
+  items.splice(1, 1, 9, 8, 7);  // spliceメソッドで配列の要素を自由に追加削除など可能
+  console.log(items);
+
+  // fillメソッド
+  items = [0, 1, 2, 3, 4, 5];
+  items.fill(0, 3, 5); // 既存の配列の要素が全て0に置き換わる
+  console.log(items);
+
 }
