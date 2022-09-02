@@ -167,6 +167,13 @@
   result = items.join('-'); // 配列の全ての要素を1つの文字列として結合する。引数に要素と要素とを結合したい文字を入れる、
   console.log(result);
 
+  // indexOfメソッド
+  items = ['apple', 'banana', 'orange', 'banana'];
+  // result = items.indexOf('banana', 2); // 配列要素の最初から対象文字列を検索して文字列があればその文字列のインデックスが返る
+  result = items.lastIndexOf('banana'); // 配列要素の最後から対象文字列を検索して文字列があればその文字列のインデックスが返る
+  result = items.includes('banana'); // 対象の文字列が配列に入っていたらtrue, そうでなければfalse
+  console.log(result);
+
 
   /* items配列を直接編集せずに新しく配列を作る（返す）メソッド（終了） */
 }
