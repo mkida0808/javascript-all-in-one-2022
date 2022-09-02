@@ -156,6 +156,17 @@
   let result = items.slice(2, 4);
   console.log(result);
 
+  // concatメソッド
+  items = [0, 1, 2, 3];
+  result = items.concat([10, 11, 12, 13], 20, 21, [30, 31, 32], 40); // 配列の形でも引数の形として渡しても良い
+  // result = items.concat(4, 5, 6, 7, 8, 9, 10); // 配列の形でも引数の形として渡しても良い
+  console.log(result);
+
+  // joinメソッド
+  items = ['a', 'b', 'c'];
+  result = items.join('-'); // 配列の全ての要素を1つの文字列として結合する。引数に要素と要素とを結合したい文字を入れる、
+  console.log(result);
+
 
   /* items配列を直接編集せずに新しく配列を作る（返す）メソッド（終了） */
 }
