@@ -196,5 +196,12 @@
   console.log(result);
   result = items.flatMap((item) => [item, item * 10]); // flatMap = map + flatを実行している
 
+  // filterメソッド
+  items = [0, 1, 2, , , , 3, 4, 5, 6];
+  result = items.filter((item) => {
+    return item % 2 === 0; // return でtrueまたはfalseを返す（今回はtrue判定された要素だけで新たな配列が作成される）
+  });
+  console.log(result);
+
   /* items配列を直接編集せずに新しく配列を作る（返す）メソッド（終了） */
 }
