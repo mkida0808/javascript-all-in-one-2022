@@ -220,5 +220,26 @@
   });
   console.log(result);
 
+  // everyメソッド someメソッド
+  items = [0, 1, 2];
+  result = items.every((item) => { // 条件に対して配列の各要素がtrueになればresultはtrueを返す、1つでも条件が合わなければfalseを返す
+    // return item < 2; // false
+    return item < 5; // true
+  });
+  console.log(result);
+
+  result = items.some((item) => { // 条件に対して配列の各要素が1つでもtrueになればresultはtrueを返す、全ての要素がfalseならばfalseを返す
+    // return item < 2; // true
+    return item < 0; // false
+  });
+  console.log(result);
+
+  // forEachメソッド
+  items = ['apple', 'banana', 'grape'];
+  items.forEach((item, index, array) => { // 配列をループするだけ for-ofと類似
+    console.log(item, index, array);
+  });
+
+
   /* items配列を直接編集せずに新しく配列を作る（返す）メソッド（終了） */
 }
