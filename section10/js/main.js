@@ -211,5 +211,14 @@
   }, 0);
   console.log(result);
 
+  // findメソッド findIndexメソッド
+  items = ['apple', , , 'banana', 'grape', 'banana'];
+  result = items.find((item) => { // 配列の特定要素（文字列）を見つけてtrueならばその要素の文字列を返す
+  // result = items.findIndex((item) => { // 配列の特定要素（文字列）を見つけてtrueならばその要素インデックスを返す
+    console.log(item);
+    return item === 'banana';
+  });
+  console.log(result);
+
   /* items配列を直接編集せずに新しく配列を作る（返す）メソッド（終了） */
 }
