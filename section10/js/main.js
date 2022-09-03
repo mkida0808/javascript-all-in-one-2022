@@ -177,12 +177,24 @@
   // mapメソッド
   items = [0, 1, , 2];
   console.log(items);
-  result = items.map((item, index, array) => {
+  result = items.map((item, index, array) => { // 配列の各要素を関数で変換して新たな配列を返す
     console.log(item, index, array);
     return item * 10;
   });
   console.log(result);
 
+  // flatメソッド
+  items = [0, 1, [2, [3, [4]]]];
+  result = items.flat(3); // ネストした配列を1つの配列に変換する。flatの引数は何段階のネストをしていするかを整数で入力する default= 1
+  console.log(result);
+
+  // flatMapメソッド
+  items = [0, 1, 2];
+  result = items.map((item) => [item, item * 10]);
+  console.log(result);
+  result = result.flat();
+  console.log(result);
+  result = items.flatMap((item) => [item, item * 10]); // flatMap = map + flatを実行している
 
   /* items配列を直接編集せずに新しく配列を作る（返す）メソッド（終了） */
 }
