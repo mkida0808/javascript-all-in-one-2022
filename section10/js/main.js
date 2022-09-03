@@ -240,6 +240,10 @@
     console.log(item, index, array);
   });
 
+  // atメソッド
+  items = ['apple', 'banana', 'grape'];
+  console.log(items.at(-1)); // atメソッドでマイナスのインデックスを指定して配列の後ろの要素を取得出来る
+
 
   /* items配列を直接編集せずに新しく配列を作る（返す）メソッド（終了） */
 }
