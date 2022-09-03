@@ -174,6 +174,15 @@
   result = items.includes('banana'); // 対象の文字列が配列に入っていたらtrue, そうでなければfalse
   console.log(result);
 
+  // mapメソッド
+  items = [0, 1, , 2];
+  console.log(items);
+  result = items.map((item, index, array) => {
+    console.log(item, index, array);
+    return item * 10;
+  });
+  console.log(result);
+
 
   /* items配列を直接編集せずに新しく配列を作る（返す）メソッド（終了） */
 }
