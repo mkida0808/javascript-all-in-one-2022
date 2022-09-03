@@ -203,5 +203,13 @@
   });
   console.log(result);
 
+  // reduceメソッド reduceRightメソッド
+  items = [1, 2, , , 3];
+  result = items.reduce((previousItem, item) => {
+  // result = items.reduceRight((previousItem, item) => {
+    return previousItem + item;
+  }, 0);
+  console.log(result);
+
   /* items配列を直接編集せずに新しく配列を作る（返す）メソッド（終了） */
 }
