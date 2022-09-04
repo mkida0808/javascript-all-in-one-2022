@@ -176,4 +176,20 @@
   for (const item of iterableObject) {
     console.log(item);
   }
+
+
+  console.log('----------');
+
+
+  // タグ付きテンプレート
+  const myTag = (strings, name, age) => {
+    // console.log(strings);
+    // console.log(name);
+    // console.log(age);
+    return `${strings[0]}${age}${strings[2]}${strings[1]}${name}`;
+  };
+  let name = 'makoto';
+  let age = 1234;
+  // myTag`Hello! I am ${name} and ${age} years old`; // タグ付きテンプレート
+  console.log(myTag`Hello! I am ${name} and ${age} years old`);
 }
