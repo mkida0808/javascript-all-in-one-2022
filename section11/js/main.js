@@ -12,7 +12,8 @@
       if (prop in target) {
         return target[prop];
       }
-      return 'default';
+      // return 'default';
+      return Reflect.get(target, prop); // Reflect API
     },
     set (target, prop, value) { // 自分でsetterを作る
       target[prop] = value;
@@ -20,7 +21,8 @@
       if (index >= target.length) {
         target.length = index + 1;
       }
-      return true;
+      // return true;
+      return Reflect.set(target, prop, value)
     },
   });
   arrayLikeObject[10] = 10;
@@ -30,6 +32,8 @@
   let obj = {
     hello: 'hello',
   };
+  Reflect.deleteProperty(obj, 'hello'); // Reflectのプロパティでオブジェクトを削除することが可能
+  console.log(obj);
   let proxy = new Proxy(obj, {
 
   });
