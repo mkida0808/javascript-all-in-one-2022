@@ -38,4 +38,31 @@
 
   });
   console.log(proxy.hasOwnProperty('hello'));
+
+
+  console.log('----------');
+
+
+  // シンボル関数
+  let symbol = Symbol.for('symbol'); // 必ず値どうしがかぶらない値を作る
+  let symbol2 = Symbol.for('symbol2');
+  console.log(typeof symbol);
+
+  obj = {
+    0:0,
+    [symbol2]: 'banana',
+  }
+  obj.hello = 'hello';
+  obj.hi = 'hi';
+  obj[1] = 1;
+  obj[symbol] = 'apple';
+  console.log(obj);
+  for (const key in obj) {
+    console.log(key);
+  }
+  console.log(Object.getOwnPropertySymbols(obj));
+  console.log(Reflect.ownKeys(obj)); // symbolを含めた全てのオブジェクトのプロパティ＆値を表示する
+  // console.log(Symbol.keyFor(symbol));
+  // console.log(symbol, symbol2)
+  // console.log(symbol === symbol2);
 }
