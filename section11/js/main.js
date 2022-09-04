@@ -77,4 +77,53 @@
   let result = items.concat([3, 4, 5], 6, arrayLikeObject); // （↑上の続き）オブジェクトが配列の要素として展開される（オブジェクト本体が展開されない）
   result = Array.prototype.concat.call(arrayLikeObject, items);
   console.dir(result);
+
+
+  console.log('----------');
+
+
+  // iterableオブジェクト、Symbol.iterator
+  let iterableObject = {
+    a: 'a',
+    b: 'b',
+    [Symbol.iterator]() { // iterableオブジェクト
+      let count = 0;
+      return { // iterator
+        next() {
+          count++;
+          return count > 3 ? { done: true } : { value: count, done: false, }
+        },
+      };
+    },
+  }
+  // for (const key in obj) {}
+  for (const item of iterableObject) { // obj = iterableオブジェクトであれば良い（配列以外で）
+    console.log(item);
+  }
+  // obj[Symbol.iterableObject]();
+  let iterator = iterableObject[Symbol.iterator]();
+  console.log(iterator.next());
+  console.log(iterator.next());
+  console.log(iterator.next());
+  console.log(iterator.next());
+  console.log(iterator.next());
+  console.log(iterator.next());
+  console.log(iterator.next());
+
+  arrayLikeObject = {
+    0: 'a',
+    1: 'b',
+    length: 2,
+  }
+  arrayLikeObject.__proto__ = Array.prototype;
+
+  for (const item of arrayLikeObject) {
+    console.log(item);
+  }
+  console.log([...arrayLikeObject, 3, 4, 5]);
+  let [first, second] = arrayLikeObject;
+  console.log(first, second);
+  let realArray = Array.from(arrayLikeObject);
+  console.log(Array.isArray(realArray));
+  console.log(realArray);
 }
