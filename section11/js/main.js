@@ -126,4 +126,54 @@
   let realArray = Array.from(arrayLikeObject);
   console.log(Array.isArray(realArray));
   console.log(realArray);
+
+
+  console.log('----------');
+
+
+  // generator関数でiteratorを作成
+  // function * generatorFunc() {
+  let generatorFunc = function* () {
+    let result = yield 0;
+    console.log(result); // undefined
+    console.log('hello');
+    yield 1;
+    console.log('hello2');
+    yield 2;
+    console.log('hello3');
+    yield 3;
+    console.log('hello4');
+    yield* [4, 5, 6]; // yield 4; yield 5; yield 6;
+    console.log('hello5');
+    yield* iterableObject;
+  }
+  obj = {
+    *g() {},
+  };
+  let generator = generatorFunc();
+  console.log(generator);
+  console.log(generator.next());
+  console.log(generator.next());
+  console.log(generator.next());
+  console.log(generator.next());
+  console.log(generator.next());
+  console.log(generator.next());
+  console.log(generator.next());
+  console.log(generator.next());
+  console.log(generator.next());
+  console.log(generator.next());
+  for (const item of generator) {
+    console.log(item);
+  }
+
+  iterableObject = {
+    *[Symbol.iterator]() {
+      for (let i = 4; i < 8; i++) {
+        yield i;
+      }
+    },
+  };
+  for (const item of iterableObject) {
+    console.log(item);
+  }
 }
