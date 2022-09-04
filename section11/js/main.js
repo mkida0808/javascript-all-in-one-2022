@@ -65,4 +65,16 @@
   // console.log(Symbol.keyFor(symbol));
   // console.log(symbol, symbol2)
   // console.log(symbol === symbol2);
+
+  // Well-knownシンボル
+  let items = [0, 1, 2];
+  arrayLikeObject = {
+    0:7,
+    1:8,
+    length:2,
+    [Symbol.isConcatSpreadable]: true, // このプロパティがtrueならば（↓下に続く）
+  };
+  let result = items.concat([3, 4, 5], 6, arrayLikeObject); // （↑上の続き）オブジェクトが配列の要素として展開される（オブジェクト本体が展開されない）
+  result = Array.prototype.concat.call(arrayLikeObject, items);
+  console.dir(result);
 }
