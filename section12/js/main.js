@@ -35,4 +35,11 @@
   console.log(Number.MIN_VALUE); // 正の最小数
   console.log(Number.MAX_SAFE_INTEGER);
 
+
+  console.log('----------');
+
+
+  // isNaN, isFinite
+  console.log(Number.isNaN(NaN)); // NaNの時だけtrueになる。それ以外の数値は全てfalse
+  console.log(Number.isFinite(NaN)); // NaNの時だけfalseになる。有限な数値が入れば全てtrue
 }
