@@ -15,4 +15,14 @@
   // ラッパーオブジェクトがprimitive値に絡む場合
   console.log(1 + new Number(20));
   console.log(1 + new String('hello'));
+
+
+  console.log('----------');
+
+
+  // 2進数を扱う方法
+  result = (10).toString(2); // 10という10進数を2進数に変換する（ただし、文字列）
+  console.log(result);
+  result = Number.parseInt('1010', 2); // 1010という2進数を10進数に変換する（数値） // parseIntは小数点部分を10進数に変換することが出来ない
+  console.log(result);
 }
