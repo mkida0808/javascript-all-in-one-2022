@@ -25,4 +25,14 @@
   console.log(result);
   result = Number.parseInt('1010', 2); // 1010という2進数を10進数に変換する（数値） // parseIntは小数点部分を10進数に変換することが出来ない
   console.log(result);
+
+
+  console.log('----------');
+
+
+  // JavaScriptで扱える正の最大数、正の最小数
+  console.log(Number.MAX_VALUE); // 正の最大数
+  console.log(Number.MIN_VALUE); // 正の最小数
+  console.log(Number.MAX_SAFE_INTEGER);
+
 }
