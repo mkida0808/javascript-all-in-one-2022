@@ -42,4 +42,16 @@
   // isNaN, isFinite
   console.log(Number.isNaN(NaN)); // NaNの時だけtrueになる。それ以外の数値は全てfalse
   console.log(Number.isFinite(NaN)); // NaNの時だけfalseになる。有限な数値が入れば全てtrue
+
+
+  console.log('----------');
+
+
+  // bigInt型
+  let bigInt = 1234567890n;
+  bigInt = BigInt(12345678901n);
+  console.log(typeof bigInt);
+  console.log(bigInt);
+  bigInt = 9007199254740992n + 1n
+  console.log(bigInt);
 }
